@@ -13,6 +13,9 @@ artist_repository.save(artist_1)
 album_1 = Album("Greatest Hits" , "Pop" , artist_1)
 album_repository.save(album_1)
 
+album_2 = Album("Another Album" , "Pop" , artist_1)
+album_repository.save(album_2)
+
 select_artist = artist_repository.select(artist_1.id)
 print (select_artist)
 
@@ -26,3 +29,11 @@ for artist in all_artists:
 all_albums= album_repository.select_all()
 for album in all_albums:
     print (f"Album title: {album.title} , Album Genre: {album.genre} , Artist: {album.artist.name}")
+
+list_all_albums = album_repository.select_all_albums(artist_1)
+for album in list_all_albums:
+    print (album.title)
+
+the_beatles = Artist ("The Beatles")
+artist_repository.edit_artist(artist_1, the_beatles)
+

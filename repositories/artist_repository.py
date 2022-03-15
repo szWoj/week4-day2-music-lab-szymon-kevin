@@ -38,3 +38,9 @@ def select_all():
         artist = Artist(row['name'] , row['id'])
         artists.append(artist)
     return artists
+
+def edit_artist(artist, updated_artist):
+    sql = "UPDATE artists SET name = (%s) WHERE id = %s"
+    values = [updated_artist.name, artist.id]
+    run_sql(sql, values)
+
