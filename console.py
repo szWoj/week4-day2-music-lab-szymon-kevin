@@ -37,3 +37,5 @@ for album in list_all_albums:
 the_beatles = Artist ("The Beatles")
 artist_repository.edit_artist(artist_1, the_beatles)
 
+fantastic_album = Album ("Fantastic Album" , "Rock", artist_1)
+album_repository.edit_album(album_2, fantastic_album)

@@ -54,3 +54,8 @@ def select_all_albums(artist):
         album = Album(row['title'] , row['genre'], artist)
         albums.append(album)
     return albums
+
+def edit_album(original_album, updated_album):
+    sql = "UPDATE albums SET (title, genre, artist_id) = (%s, %s, %s) WHERE id = %s"
+    values = [updated_album.title, updated_album.genre, updated_album.artist.id, original_album.id]
+    run_sql(sql, values)
