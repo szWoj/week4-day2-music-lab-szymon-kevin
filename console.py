@@ -39,3 +39,7 @@ artist_repository.edit_artist(artist_1, the_beatles)
 
 fantastic_album = Album ("Fantastic Album" , "Rock", artist_1)
 album_repository.edit_album(album_2, fantastic_album)
+
+album_repository.delete(album_1.id)
+album_repository.delete(album_2.id)
+artist_repository.delete(artist_1.id)
