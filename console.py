@@ -4,11 +4,25 @@ from models.album import Album
 import repositories.artist_repository as artist_repository  
 import repositories.album_repository as album_repository
 
-# album_repository.delete_all()
-# artist_repository.delete_all()
+album_repository.delete_all()
+artist_repository.delete_all()
 
 artist_1 = Artist("Madonna")
 artist_repository.save(artist_1)
 
 album_1 = Album("Greatest Hits" , "Pop" , artist_1)
 album_repository.save(album_1)
+
+select_artist = artist_repository.select(artist_1.id)
+print (select_artist)
+
+select_album = album_repository.select(album_1.id)
+print (f"Album title: {select_album.title} , Album Genre: {select_album.genre} , Artist: {select_album.artist.name}")
+
+all_artists = artist_repository.select_all()
+for artist in all_artists:
+    print(artist)
+
+all_albums= album_repository.select_all()
+for album in all_albums:
+    print (f"Album title: {album.title} , Album Genre: {album.genre} , Artist: {album.artist.name}")
